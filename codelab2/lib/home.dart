@@ -19,9 +19,6 @@ import 'model/product.dart';
 import 'model/products_repository.dart';
 
 class HomePage extends StatelessWidget {
-  // TODO: Make a collection of cards (102)
-  // TODO: Make a collection of cards (102)
-
 // Replace this entire method
   List<Card> _buildGridCards(BuildContext context) {
     List<Product> products = ProductsRepository.loadProducts(Category.all);
@@ -37,9 +34,7 @@ class HomePage extends StatelessWidget {
     return products.map((product) {
       return Card(
         clipBehavior: Clip.antiAlias,
-        // TODO: Adjust card heights (103)
         child: Column(
-          // TODO: Center items on the card (103)
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             AspectRatio(
@@ -48,18 +43,14 @@ class HomePage extends StatelessWidget {
                 product.assetName,
                 package: product.assetPackage,
                 fit: BoxFit.fitWidth,
-                // TODO: Adjust the box size (102)
               ),
             ),
             Expanded(
               child: Padding(
                 padding: const EdgeInsets.fromLTRB(16.0, 12.0, 16.0, 8.0),
                 child: Column(
-                  // TODO: Align labels to the bottom and center (103)
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  // TODO: Change innermost Column (103)
                   children: <Widget>[
-                    // TODO: Handle overflowing labels (103)
                     Text(
                       product.name,
                       style: theme.textTheme.titleLarge,
@@ -82,16 +73,10 @@ class HomePage extends StatelessWidget {
 
   const HomePage({Key? key}) : super(key: key);
 
-  // TODO: Make a collection of cards (102)
-  // TODO: Add a variable for Category (104)
   @override
   Widget build(BuildContext context) {
-    // TODO: Return an AsymmetricView (104)
-    // TODO: Pass Category variable to AsymmetricView (104)
     return Scaffold(
-      // TODO: Add app bar (102)
       appBar: AppBar(
-        // TODO: Add buttons and title (102)
         leading: IconButton(
           icon: const Icon(
             Icons.menu,
@@ -102,7 +87,6 @@ class HomePage extends StatelessWidget {
           },
         ),
         title: const Text('SHRINE'),
-        // TODO: Add trailing buttons (102)
         actions: <Widget>[
           IconButton(
             icon: const Icon(
@@ -124,16 +108,12 @@ class HomePage extends StatelessWidget {
           ),
         ],
       ),
-      // TODO: Add a grid view (102)
-      // TODO: Add a grid view (102)
       body: GridView.count(
         crossAxisCount: 2,
         padding: const EdgeInsets.all(16.0),
         childAspectRatio: 8.0 / 9.0,
         children: _buildGridCards(context),
-        // TODO: Build a grid of cards (102)
       ),
-
       resizeToAvoidBottomInset: false,
     );
   }
